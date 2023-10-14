@@ -60,8 +60,26 @@ An extension of the original `country_flags` package, this Flutter package allow
 It simplifies the process of displaying flags in your Flutter applications.
 
 ### Features
+
 - Load country flags as image assets in your Flutter app.
 - Fast and lightweight.
 - Simple to use.
+
+
+### Usage
+- After get all currencies from api, We got this response for each currency:
+  (e.g,`"EUR": {
+            "symbol": "€",
+            "name": "Euro",
+            "symbol_native": "€",
+            "decimal_digits": 2,
+            "rounding": 0,
+            "code": "EUR",
+            "name_plural": "Euros"
+        }`),
+
+- Then we take first two alphabet of country code (e.g, `EU`).
+- Final we got the flag of this country ![rrr]([https://myoctocat.com/assets/images/base-octocat.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1024px-Flag_of_Europe.svg.png)https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1024px-Flag_of_Europe.svg.png)
+
 
 
