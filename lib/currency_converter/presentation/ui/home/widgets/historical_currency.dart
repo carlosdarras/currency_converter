@@ -1,4 +1,4 @@
-import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/home_bloc.dart';
+import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/currency_bloc.dart';
 import 'package:currency_converter/currency_converter/shared/widgets/tools.dart';
 import 'package:intl/intl.dart';
 

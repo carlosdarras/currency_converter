@@ -1,5 +1,5 @@
-import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/home_bloc.dart';
-import 'package:currency_converter/currency_converter/shared/enums/currency_selecter_type.dart';
+import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/currency_bloc.dart';
+import 'package:currency_converter/currency_converter/shared/enums/currency_select_type.dart';
 import 'package:currency_converter/currency_converter/shared/widgets/tools.dart';
 
 class SelectCurrencyBuilder extends StatelessWidget {

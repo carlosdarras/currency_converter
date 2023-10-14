@@ -1,14 +1,14 @@
 import 'package:currency_converter/currency_converter/domain/request/currencies_request.dart';
 import 'package:currency_converter/currency_converter/domain/request/historical_request.dart';
-import 'package:currency_converter/currency_converter/domain/respons/currencies_respons.dart';
+import 'package:currency_converter/currency_converter/domain/response/currencies_response.dart';
 
 import '../../../../domain/request/latest_exchange_rates_request.dart';
 
 abstract class CurrenciesRepository {
-  Future<List<CurrencyResponse>> getCurrencies(final CurrenciesRequest param);
+  Future<List<CurrencyResponse>> getCurrencies(final CurrenciesRequest currenciesRequest);
 
-  Future<double> getCurrenciesConverterValue(
-      final LatestExchangeRateRequest param);
+  Future<num> getCurrenciesConverterValue(
+      final LatestExchangeRateRequest latestExchangeRateRequest);
 
-  Future<double> getHistoricalResponse(final HistoricalRequest param);
+  Future<num> getHistoricalResponse(final HistoricalRequest historicalRequest);
 }

@@ -1,9 +1,9 @@
-import 'package:currency_converter/currency_converter/data/data_sources/local/spflite.dart';
+import 'package:currency_converter/currency_converter/data/data_sources/local/spflite_manager.dart';
 import 'package:currency_converter/currency_converter/data/data_sources/remote/repositories/currencies_repo.dart';
 import 'package:currency_converter/currency_converter/domain/request/currencies_request.dart';
 import 'package:currency_converter/currency_converter/domain/request/historical_request.dart';
 import 'package:currency_converter/currency_converter/domain/request/latest_exchange_rates_request.dart';
-import 'package:currency_converter/currency_converter/domain/respons/currencies_respons.dart';
+import 'package:currency_converter/currency_converter/domain/response/currencies_response.dart';
 import 'package:currency_converter/currency_converter/shared/constant/app_urls.dart';
 import 'package:currency_converter/currency_converter/shared/core/network/dio_helper.dart';
 import 'package:currency_converter/currency_converter/shared/enums/currencies_enum.dart';
@@ -15,14 +15,15 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
   CurrenciesRepoImplement(this._dio, this._sqfLite);
 
   @override
-  Future<List<CurrencyResponse>> getCurrencies(CurrenciesRequest param) async {
+  Future<List<CurrencyResponse>> getCurrencies(CurrenciesRequest currenciesRequest) async {
     List<Map<String, dynamic>> dataFromDatabase =
         await _sqfLite.readData('SELECT * FROM currency');
     List<CurrencyResponse> res = [];
     try {
       if (dataFromDatabase.isEmpty) {
+        print('tddddxxx ');
         await _dio
-            .getData(url: ApiUrls.getCurrencies(), query: param.toJson())
+            .getData(url: ApiUrls.getCurrencies(), query: currenciesRequest.toJson())
             .then((value) {
           for (int i = 0; i < value.data['data'].length; i++) {
             res.add(CurrencyResponse.fromJson(
@@ -43,14 +44,14 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
   }
 
   @override
-  Future<double> getCurrenciesConverterValue(
-      LatestExchangeRateRequest param) async {
+  Future<num> getCurrenciesConverterValue(
+      LatestExchangeRateRequest latestExchangeRateRequest) async {
     double res = 0;
     try {
       await _dio
-          .getData(url: ApiUrls.getLatest(), query: param.toJson())
+          .getData(url: ApiUrls.getLatest(), query: latestExchangeRateRequest.toJson())
           .then((value) {
-        res = value.data['data'][param.currencies];
+        res = value.data['data'][latestExchangeRateRequest.currencies];
       });
 
       return res;
@@ -60,14 +61,14 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
   }
 
   @override
-  Future<double> getHistoricalResponse(HistoricalRequest param) async {
-    double res = 0;
+  Future<num> getHistoricalResponse(HistoricalRequest historicalRequest) async {
+    num res = 0;
     try {
       await _dio
-          .getData(url: ApiUrls.getHistorical(), query: param.toJson())
+          .getData(url: ApiUrls.getHistorical(), query: historicalRequest.toJson())
           .then(
         (value) {
-          res = value.data['data'][param.date][param.currencies];
+          res = value.data['data'][historicalRequest.date][historicalRequest.currencies];
           print('the value idididid ${res}');
         },
       );

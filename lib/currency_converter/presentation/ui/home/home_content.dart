@@ -1,13 +1,10 @@
 import 'package:currency_converter/currency_converter/presentation/di/di.dart';
-import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/home_bloc.dart';
+import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/currency_bloc.dart';
 import 'package:currency_converter/currency_converter/presentation/ui/home/widgets/amount_form_field.dart';
 import 'package:currency_converter/currency_converter/presentation/ui/home/widgets/historical_currency.dart';
 import 'package:currency_converter/currency_converter/presentation/ui/home/widgets/welcome_message.dart';
-import 'package:currency_converter/currency_converter/shared/enums/currency_selecter_type.dart';
-import 'package:currency_converter/currency_converter/shared/widgets/vertical_spacing.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sizer/sizer.dart';
+import 'package:currency_converter/currency_converter/shared/enums/currency_select_type.dart';
+import 'package:currency_converter/currency_converter/shared/widgets/tools.dart';
 
 import 'widgets/converter_button.dart';
 import 'widgets/select_currency_builder.dart';
@@ -34,7 +31,6 @@ class _HomeContentState extends State<HomeContent> {
     return BlocBuilder<CurrencyBloc, CurrencyState>(
       bloc: _currencyBloc,
       builder: (context, state) {
-        print('the state is $state');
         if (_currencyBloc.currenciesResponse!.isEmpty) {
           return const Center(
             child: CircularProgressIndicator(
@@ -70,7 +66,7 @@ class _HomeContentState extends State<HomeContent> {
               ),
               const VerticalSpacing(3),
               state is HomeGetHistoricalLoadingState
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(
                         color: Colors.black,
                       ),

@@ -46,7 +46,7 @@ class SqfLite {
     List<Map<String,dynamic>> response = await myDB.rawQuery(sql);
     return response;
   }
-
+//TODO try catch  Error Handling
   insertData(String sql) async {
     Database? myDB = await db;
     int response = await myDB.rawInsert(sql);

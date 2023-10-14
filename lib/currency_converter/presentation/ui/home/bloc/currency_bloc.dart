@@ -1,20 +1,15 @@
-import 'package:bloc/bloc.dart';
 import 'package:currency_converter/currency_converter/data/data_sources/remote/repositories/currencies_repo.dart';
-import 'package:currency_converter/currency_converter/domain/request/currencies_request.dart';
-import 'package:currency_converter/currency_converter/domain/request/historical_request.dart';
-import 'package:currency_converter/currency_converter/domain/request/latest_exchange_rates_request.dart';
-import 'package:currency_converter/currency_converter/domain/respons/currencies_respons.dart';
-import 'package:currency_converter/currency_converter/domain/respons/historical_response.dart';
-import 'package:currency_converter/currency_converter/shared/constant/app_value.dart';
-import 'package:currency_converter/currency_converter/shared/enums/currency_selecter_type.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:currency_converter/currency_converter/domain/domain_barrel.dart';
+import 'package:currency_converter/currency_converter/shared/enums/currency_select_type.dart';
+import 'package:currency_converter/currency_converter/shared/widgets/tools.dart';
+import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../shared/enums/currencies_enum.dart';
 
-part 'home_event.dart';
+part 'currency_event.dart';
 
-part 'home_state.dart';
+part 'currency_state.dart';
 
 class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
   CurrencyBloc(
@@ -27,6 +22,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
         _onGetLatestAndCovertBetweenTwoCurrencies);
   }
 
+  ///############# [Variables] #############\\\
   CurrenciesRepository currenciesRepository;
 
   List<CurrencyResponse>? currenciesResponse = [];
@@ -38,7 +34,9 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
   double covertValue = 0;
   TextEditingController amountController = TextEditingController();
 
-  void _onGetAllCurrencies(GetAllCurrencies event, Emitter emit) async {
+  ///############# [Event_Handler] #############\\\
+  ///================= [GetAllCurrencies] =================\\\
+  Future<void> _onGetAllCurrencies(GetAllCurrencies event, Emitter emit) async {
     try {
       emit(HomeGetAllCurrenciesInfoLoadingState());
       await currenciesRepository
@@ -54,10 +52,12 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
     }
   }
 
+  ///================= [SelectCurrencyEvent] =================\\\
   void _onSelectCurrencyEvent(
     SelectCurrencyEvent event,
     Emitter emit,
   ) async {
+    emit(HomeStartSelectCurrencyState());
     if (event.select == CurrencySelect.from) {
       fromCurrency = event.currencyData;
     } else {
@@ -66,6 +66,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
     emit(HomeSelectCurrencySuccessState());
   }
 
+  ///================= [GetLatestAndCovertBetweenTwoCurrencies] =================\\\
   void _onGetLatestAndCovertBetweenTwoCurrencies(
     GetLatestAndCovertBetweenTwoCurrencies event,
     Emitter emit,
@@ -89,6 +90,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
     }
   }
 
+  ///================= [GetHistoricalPriceForSevenDaysAgo] =================\\\
   void _onGetHistoricalPriceForSevenDaysAgo(
     GetHistoricalPriceForSevenDaysAgo event,
     Emitter emit,
@@ -118,7 +120,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
           );
         });
       }
-      print('the hisotrical is ${historicalResponse}');
+
       historicalResponse = historicalResponse!.reversed.toList();
       emit(HomeGetHistoricalSuccessState());
     } catch (e) {
@@ -126,6 +128,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
     }
   }
 
+  ///############# [Other] #############\\\
   void setFromAndToCurrencies() {
     fromCurrency = currenciesResponse![0];
     toCurrency = currenciesResponse![1];

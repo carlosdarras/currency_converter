@@ -1,4 +1,4 @@
-part of 'home_bloc.dart';
+part of 'currency_bloc.dart';
 
 @immutable
 abstract class CurrencyState {}
@@ -8,6 +8,8 @@ class HomeInitial extends CurrencyState {}
 class HomeGetAllCurrenciesInfoLoadingState extends CurrencyState {}
 class HomeGetAllCurrenciesInfoSuccessState extends CurrencyState {}
 class HomeGetAllCurrenciesInfoFailState extends CurrencyState {}
+
+class HomeStartSelectCurrencyState extends CurrencyState {}
 
 class HomeSelectCurrencySuccessState extends CurrencyState {}
 

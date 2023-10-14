@@ -1,7 +1,10 @@
-part of 'home_bloc.dart';
+part of 'currency_bloc.dart';
 
 @immutable
-abstract class CurrencyEvent {}
+abstract class CurrencyEvent extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 class GetAllCurrencies extends CurrencyEvent {}
 
@@ -10,6 +13,9 @@ class SelectCurrencyEvent extends CurrencyEvent {
   final CurrencyResponse currencyData;
 
   SelectCurrencyEvent(this.select, this.currencyData);
+
+  @override
+  List<Object?> get props => [select, currencyData];
 }
 
 class GetLatestAndCovertBetweenTwoCurrencies extends CurrencyEvent {}
