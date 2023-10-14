@@ -54,5 +54,14 @@ The **BLoC (Business Logic Component) design pattern** is a robust architectural
 To leverage the BLoC pattern effectively, you'll need to define your own BLoCs and events tailored to the specific needs of your application. This customization allows you to address the unique requirements of your project while benefiting from the advantages of the pattern.
 
 
+# `country_flags` Image Loader for Flutter
+
+An extension of the original `country_flags` package, this Flutter package allows you to easily load country flags as image. 
+It simplifies the process of displaying flags in your Flutter applications.
+
+### Features
+- Load country flags as image assets in your Flutter app.
+- Fast and lightweight.
+- Simple to use.
 
 
