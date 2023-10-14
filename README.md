@@ -30,7 +30,7 @@
 
 ### Introduction
 
-The **BLoC (Business Logic Component) design pattern** is a robust architectural approach for building Flutter applications. It's designed to *enhance* the *scalability* and *maintainability* of applications by **separating business logic from the presentation layer**. This README provides an overview of the BLoC pattern, why you should consider using it, and how to adapt it to suit the specific requirements of your application.
+The **[BLoC (Business Logic Component)](https://bloclibrary.dev/#/) design pattern** is a robust architectural approach for building Flutter applications. It's designed to *enhance* the *scalability* and *maintainability* of applications by **separating business logic from the presentation layer**. This README provides an overview of the BLoC pattern, why you should consider using it, and how to adapt it to suit the specific requirements of your application.
 
 ### Key Benefits
 - **Separation of Concerns**
@@ -54,9 +54,10 @@ The **BLoC (Business Logic Component) design pattern** is a robust architectural
 To leverage the BLoC pattern effectively, you'll need to define your own BLoCs and events tailored to the specific needs of your application. This customization allows you to address the unique requirements of your project while benefiting from the advantages of the pattern.
 
 
+
 # `country_flags` Image Loader for Flutter
 
-An extension of the original `country_flags` package, this Flutter package allows you to easily load country flags as image. 
+An extension of the original [`country_flags`](https://pub.dev/packages/country_flags) package, this Flutter package allows you to easily load country flags as image. 
 It simplifies the process of displaying flags in your Flutter applications.
 
 ### Features
@@ -68,18 +69,46 @@ It simplifies the process of displaying flags in your Flutter applications.
 
 ### Usage
 - After get all currencies from api, We got this response for each currency:
-  (e.g,`"EUR": {
-            "symbol": "€",
-            "name": "Euro",
-            "symbol_native": "€",
-            "decimal_digits": 2,
-            "rounding": 0,
-            "code": "EUR",
-            "name_plural": "Euros"
-        }`),
+  (e.g,
+  `"EUR": {"code": "EUR"}`),
 
 - Then we take first two alphabet of country code (e.g, `EU`).
-- Final we got the flag of this country 🇪🇺
+- Final we got the flag of this country.
+
+
+
+# Advantages of using `sqflite` for Local Database
+The [`sqflite`](https://pub.dev/packages/sqflite) package is a crucial tool for developers building Flutter applications that require robust local data storage and management. Below are the reasons why you should consider integrating `sqflite` into your project:
+
+### Local Data Persistence
+`sqflite` empowers your Flutter application with a reliable local database, enabling you to efficiently store and manage structured data on the device.
+
+### Offline Data Access
+Ensure uninterrupted functionality in various network conditions by allowing your app to access and manipulate data even when the device is offline.
+
+### High Performance
+Leveraging the SQLite database engine, `sqflite` delivers exceptional data storage and retrieval speeds, making it ideal for small to medium-sized databases used in mobile applications.
+
+### Structured Data Storage
+Utilize SQLite's relational database capabilities through `sqflite`, enabling you to define structured data using tables and columns, perfect for complex data models and relationships.
+
+### Querying and Data Manipulation
+Harness the power of SQL-based queries provided by `sqflite` to efficiently sort, filter, and aggregate data, enabling diverse data manipulation capabilities within your app.
+
+### Data Security
+Enhance data security by encrypting your local database, providing an additional layer of protection for sensitive information stored in your Flutter application.
+
+### Conclusion
+integrating the sqflite package into your Flutter application is essential for achieving robust local data storage, offline functionality, and efficient data management. 
+
+
+# Technologies that using in **Currency Converter** project
+- Postman
+- Android Studio
+- Flutter Framework
+- [Free Currency Api](https://app.freecurrencyapi.com/dashboard)
+
+
 
 
 
