@@ -8,10 +8,15 @@
 
   To install a Currency Converter project from GitHub, you can follow these steps:
 
+### Prerequisites
+
 - Make sure you have Flutter and Dart installed on your system. If not, you can install them by following the official Flutter installation guide:
   [Flutter SDK](https://flutter.dev/docs/get-started/install).
 - Verify that you have the necessary dependencies for your specific development platform (e.g., **Android Studio** or **Xcode** for mobile app development).
 - Ensure you have Git installed on your system. You can download Git from [Git](https://git-scm.com/downloads).
+
+### Installation Steps:
+
 - Open your terminal or command prompt.
 - Navigate to the directory where you want to install the software or set up the environment.
 - Use the `git clone https://github.com/carlosdarras/currency_converter.git` command to clone the GitHub repository.
