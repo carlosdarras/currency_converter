@@ -79,7 +79,7 @@ It simplifies the process of displaying flags in your Flutter applications.
         }`),
 
 - Then we take first two alphabet of country code (e.g, `EU`).
-- Final we got the flag of this country ![rrr]([https://myoctocat.com/assets/images/base-octocat.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1024px-Flag_of_Europe.svg.png)https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1024px-Flag_of_Europe.svg.png)
+- Final we got the flag of this country 🇪🇺
 
 
 
