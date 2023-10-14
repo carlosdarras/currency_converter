@@ -13,7 +13,6 @@
 - Make sure you have Flutter and Dart installed on your system. If not, you can install them by following the official Flutter installation guide:
   [Flutter SDK](https://flutter.dev/docs/get-started/install).
 - Verify that you have the necessary dependencies for your specific development platform (e.g., **Android Studio** or **Xcode** for mobile app development).
-- Ensure you have Git installed on your system. You can download Git from [Git](https://git-scm.com/downloads).
 
 ### Installation Steps:
 
@@ -103,10 +102,15 @@ integrating the sqflite package into your Flutter application is essential for a
 
 
 # Technologies that using in **Currency Converter** project
-- Postman
-- Android Studio
-- Flutter Framework
-- [Free Currency Api](https://app.freecurrencyapi.com/dashboard)
+- **Postman**
+  Postman is likely used for testing and interacting with the API that provides currency exchange rates. It helps in ensuring the correctness of data retrieval.
+- **Android Studio**
+  Android Studio is a popular integrated development environment (IDE) for Android app development and is used for building the Android version of the Currency Converter.
+- **Flutter Framework**
+  Flutter is a UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. It's the core framework used for building the Currency 
+  Converter application.
+- **[Free Currency Api](https://app.freecurrencyapi.com/dashboard)**
+  The project relies on the Free Currency API to obtain up-to-date currency exchange rate data. This API provides the necessary information for currency conversion.
 
 
 
