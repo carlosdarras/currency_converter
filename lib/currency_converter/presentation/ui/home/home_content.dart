@@ -40,6 +40,7 @@ class _HomeContentState extends State<HomeContent> {
         } else {
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 7.h),
+            physics: const BouncingScrollPhysics(),
             children: [
               //-----------------------------------
               const WelcomeMessage(),

@@ -1,7 +1,11 @@
 part of 'currency_bloc.dart';
 
 @immutable
-abstract class CurrencyState {}
+abstract class CurrencyState extends Equatable {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}
 
 class HomeInitial extends CurrencyState {}
 

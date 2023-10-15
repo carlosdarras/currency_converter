@@ -17,6 +17,7 @@ class AmountFormField extends StatelessWidget {
         TextFormField(
           keyboardType: TextInputType.number,
           controller: currencyBloc.amountController,
+          cursorColor: Theme.of(context).colorScheme.secondary,
           decoration: InputDecoration(
               hintText: "write here ...",
               filled: true,
