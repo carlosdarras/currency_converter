@@ -72,7 +72,7 @@ It simplifies the process of displaying flags in your Flutter applications.
   `"EUR": {"code": "EUR"}`),
 
 - Then we take first two alphabet of country code (e.g, `EU`).
-- Final we got the flag of this country.
+- Finally we got the flag of this country.
 
 
 
