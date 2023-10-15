@@ -49,14 +49,14 @@ class TextWidget extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: textColor ?? Colors.black,
+        color: textColor ?? Theme.of(context).colorScheme.secondary,
         fontSize: fontSize ?? 12.sp,
         fontWeight: fontWeight ?? FontWeight.w500,
         backgroundColor: backgroundColor,
-        fontFamily: fontFamily,
+        fontFamily: fontFamily?? 'Nunito',
         fontStyle: makeItItalic! ? FontStyle.italic : FontStyle.normal,
         decoration: textDecoration,
-        decorationColor: textDecorationColor ?? Colors.black,
+        decorationColor: textDecorationColor ?? Theme.of(context).colorScheme.secondary,
         decorationThickness: decorationThickness,
         decorationStyle: decorationStyle,
         wordSpacing: wordSpacing,

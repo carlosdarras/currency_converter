@@ -12,7 +12,7 @@ class HistoricalCurrency extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Color(0xFFF1F2F6),
+          color: Theme.of(context).colorScheme.tertiary,
           boxShadow: const [
             BoxShadow(
                 color: Colors.grey, blurRadius: 26, blurStyle: BlurStyle.outer)
@@ -40,6 +40,7 @@ class HistoricalCurrency extends StatelessWidget {
           const VerticalSpacing(2),
           ListView.separated(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
             itemBuilder: (context, index) {
               return Row(
@@ -60,7 +61,7 @@ class HistoricalCurrency extends StatelessWidget {
                 ],
               );
             },
-            separatorBuilder: (context, index) => VerticalSpacing(2),
+            separatorBuilder: (context, index) => const VerticalSpacing(2),
             itemCount: currencyBloc.historicalResponse!.length,
           )
         ],

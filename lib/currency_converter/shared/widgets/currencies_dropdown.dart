@@ -1,14 +1,8 @@
 import 'package:country_flags/country_flags.dart';
-import 'package:currency_converter/currency_converter/presentation/di/di.dart';
 import 'package:currency_converter/currency_converter/presentation/ui/home/bloc/currency_bloc.dart';
 import 'package:currency_converter/currency_converter/shared/enums/currency_select_type.dart';
-import 'package:currency_converter/currency_converter/shared/widgets/text_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-
 import '../../domain/response/currencies_response.dart';
-import '../constant/app_assets.dart';
-import 'horizontal_spacing.dart';
+import 'tools.dart';
 
 class CurrenciesDropdown extends StatelessWidget {
   const CurrenciesDropdown({Key? key, required this.select, required this.homeBloc}) : super(key: key);

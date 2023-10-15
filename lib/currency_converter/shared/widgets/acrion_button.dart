@@ -55,7 +55,7 @@ class ActionButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 30),
           ),
-          foregroundColor: foregroundColor ?? Colors.white,
+          foregroundColor: foregroundColor ?? Theme.of(context).colorScheme.primary,
           visualDensity: visualDensity ?? VisualDensity.comfortable,
           padding: EdgeInsets.symmetric(
               horizontal: horizontalPadding ?? 4.w,

@@ -21,7 +21,6 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
     List<CurrencyResponse> res = [];
     try {
       if (dataFromDatabase.isEmpty) {
-        print('tddddxxx ');
         await _dio
             .getData(url: ApiUrls.getCurrencies(), query: currenciesRequest.toJson())
             .then((value) {
@@ -39,7 +38,7 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
       }
       return res;
     } catch (e) {
-      return res;
+      throw e.toString();
     }
   }
 
@@ -56,7 +55,7 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
 
       return res;
     } catch (e) {
-      return res;
+      throw e.toString();
     }
   }
 
@@ -69,13 +68,11 @@ class CurrenciesRepoImplement extends CurrenciesRepository {
           .then(
         (value) {
           res = value.data['data'][historicalRequest.date][historicalRequest.currencies];
-          print('the value idididid ${res}');
         },
       );
       return res;
     } catch (e) {
-      print('hte error innnoooo ${e.toString()}');
-      return res;
+      throw e.toString();
     }
   }
 }

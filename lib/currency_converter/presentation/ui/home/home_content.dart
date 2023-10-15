@@ -32,39 +32,46 @@ class _HomeContentState extends State<HomeContent> {
       bloc: _currencyBloc,
       builder: (context, state) {
         if (_currencyBloc.currenciesResponse!.isEmpty) {
-          return const Center(
+          return Center(
             child: CircularProgressIndicator(
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           );
         } else {
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 7.h),
             children: [
+              //-----------------------------------
               const WelcomeMessage(),
               const VerticalSpacing(2),
+              //-----------------------------------
               SelectCurrencyBuilder(
                 currencySelect: CurrencySelect.from,
                 currencyBloc: _currencyBloc,
               ),
               const VerticalSpacing(2),
+              //-----------------------------------
               SelectCurrencyBuilder(
                 currencySelect: CurrencySelect.to,
                 currencyBloc: _currencyBloc,
               ),
               const VerticalSpacing(2),
+              //-----------------------------------
               AmountFormField(
                 currencyBloc: _currencyBloc,
               ),
               const VerticalSpacing(2),
+              //-----------------------------------
               ConverterButton(
                 currencyBloc: _currencyBloc,
               ),
               const VerticalSpacing(2),
+              //-----------------------------------
               ShowResultOfCovertBuilder(
                 currencyBloc: _currencyBloc,
               ),
               const VerticalSpacing(3),
+              //-----------------------------------
               state is HomeGetHistoricalLoadingState
                   ? const Center(
                       child: CircularProgressIndicator(

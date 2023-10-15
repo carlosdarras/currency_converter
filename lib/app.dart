@@ -1,4 +1,5 @@
 import 'package:currency_converter/currency_converter/presentation/ui/home/home_view.dart';
+import 'package:currency_converter/currency_converter/shared/style/light_theme.dart';
 
 import 'currency_converter/shared/widgets/tools.dart';
 
@@ -12,9 +13,7 @@ class App extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: AppValue.appName,
-          theme: ThemeData(
-            useMaterial3: true,
-          ),
+          theme: LightTheme.of(context).theme,
           home: const HomeView(),
         );
       }

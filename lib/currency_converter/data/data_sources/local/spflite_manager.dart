@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -34,34 +35,50 @@ class SqfLite {
      "rounding" REAL
     )
     ''');
-    print('======== Create Table ========');
+    debugPrint('======== Create Table ========');
   }
 
   _onUpgrade(Database db, int oldVersion, int newVersion) {
-    print('=========== upgraded ===========');
+    debugPrint('=========== upgraded ===========');
   }
 
   Future<List<Map<String,dynamic>>> readData(String sql) async {
-    Database? myDB = await db;
-    List<Map<String,dynamic>> response = await myDB.rawQuery(sql);
-    return response;
+    try {
+      Database? myDB = await db;
+      List<Map<String, dynamic>> response = await myDB.rawQuery(sql);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
-//TODO try catch  Error Handling
+
   insertData(String sql) async {
-    Database? myDB = await db;
-    int response = await myDB.rawInsert(sql);
-    return response;
+    try {
+      Database? myDB = await db;
+      int response = await myDB.rawInsert(sql);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   updateData(String sql) async {
-    Database? myDB = await db;
-    int response = await myDB.rawUpdate(sql);
-    return response;
+    try {
+      Database? myDB = await db;
+      int response = await myDB.rawUpdate(sql);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   deleteData(String sql) async {
-    Database? myDB = await db;
-    int response = await myDB.rawDelete(sql);
-    return response;
+    try {
+      Database? myDB = await db;
+      int response = await myDB.rawDelete(sql);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 }
